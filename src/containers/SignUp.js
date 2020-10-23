@@ -3,15 +3,12 @@ import {connect} from 'react-redux';
 import {userPostFetch} from '../actions/action';
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       username: "",
       password: "",
       avatar: "",
       bio: ""
     }
- }
 //  handleChange(event) {
 //      this.setState({
 //       [event.target.name]: event.target.value
@@ -75,7 +72,7 @@ class SignUp extends Component {
   }
 }
 
-const mapDispatchToProps = () => async (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
 })
 export default connect(null, mapDispatchToProps)(SignUp);

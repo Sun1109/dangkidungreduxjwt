@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import "./actions/action"
 import SignUp from './containers/SignUp';
 
 function App() {
