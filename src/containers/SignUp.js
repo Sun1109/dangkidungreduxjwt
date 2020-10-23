@@ -1,23 +1,34 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {userPostFetch} from '../actions/action';
-class SignUp extends Component {
-  state = {
-    username: "",
-    password: "",
-    avatar: "",
-    bio: ""
-  }
 
-  handleChange = event => {
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      avatar: "",
+      bio: ""
+    }
+ }
+//  handleChange(event) {
+//      this.setState({
+//       [event.target.name]: event.target.value
+//     });
+//  }
+//  handleSubmit(event) {
+//   event.preventDefault();
+//   this.props.userPostFetch(this.state)
+//  }
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
-
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault()
-    this.props.userPostFetch(this.state)
+    userPostFetch(this.state)
   }
 
   render() {
@@ -64,8 +75,7 @@ class SignUp extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = () => async (dispatch) => ({
   userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
 })
-
 export default connect(null, mapDispatchToProps)(SignUp);
