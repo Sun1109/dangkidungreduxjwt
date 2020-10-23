@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {userPostFetch} from '../actions/action';
 class SignUp extends Component {
-  cat = {
+  state = {
     username: "",
     password: "",
     avatar: "",
